@@ -1,0 +1,17 @@
+
+Table "tb_person" {
+  "id" bigint(20) [pk, not null, increment]
+  "name" varchar(255) [default: NULL]
+}
+
+Table "tb_professional_experience" {
+  "id" bigint(20) [pk, not null, increment]
+  "person_id" bigint(20) [default: NULL]
+  "employer" varchar(255) [default: NULL]
+
+  Indexes {
+    person_id [name: "FK2ghq6qkt0eo64cdujdkjl9o4t"]
+  }
+}
+
+Ref "FK2ghq6qkt0eo64cdujdkjl9o4t":"tb_person"."id" < "tb_professional_experience"."person_id"
